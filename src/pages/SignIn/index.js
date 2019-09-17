@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
@@ -7,6 +7,7 @@ import * as Yup from 'yup';
 import { signInRequest } from '~/store/modules/auth/actions';
 
 import logo from '~/assets/logo.svg';
+import SubmitButton from '../../components/SubmitButton';
 
 const schema = Yup.object().shape({
   email: Yup.string()
@@ -17,7 +18,6 @@ const schema = Yup.object().shape({
 
 export default function SignIn() {
   const dispatch = useDispatch();
-  const working = useSelector(state => state.ux.working);
 
   function handleSubmit({ email, password }) {
     dispatch(signInRequest(email, password));
@@ -33,9 +33,7 @@ export default function SignIn() {
           placeholder="Sua senha secreta"
         />
 
-        <button type="submit" disabled={working}>
-          {working ? 'Carregando...' : 'Entrar'}
-        </button>
+        <SubmitButton />
         <Link to="/register">Criar conta gratuita</Link>
       </Form>
     </>

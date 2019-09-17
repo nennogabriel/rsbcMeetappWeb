@@ -1,11 +1,11 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
 
 import logo from '~/assets/logo.svg';
+import SubmitButton from '../../components/SubmitButton';
 
 const schema = Yup.object().shape({
   name: Yup.string().required('O nome é obrigatório'),
@@ -18,7 +18,6 @@ const schema = Yup.object().shape({
 });
 
 export default function SignUp() {
-  const working = useSelector(state => state.ux.working);
   function handleSubmit() {}
   return (
     <>
@@ -32,9 +31,7 @@ export default function SignUp() {
           placeholder="Sua senha secreta"
         />
 
-        <button type="submit" disabled={working}>
-          {working ? 'Carregando...' : 'Entrar'}
-        </button>
+        <SubmitButton />
         <Link to="/">Já tenho Login</Link>
       </Form>
     </>
