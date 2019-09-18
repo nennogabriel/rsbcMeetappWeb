@@ -11,7 +11,6 @@ export default createGlobalStyle`
     outline: 0;
     border: 0;
     box-sizing:border-box;
-    animation-duration: 750ms;
   }
   *:focus {
     outline: 0;
@@ -48,5 +47,6 @@ export default createGlobalStyle`
 
   button:disabled {
     opacity: 0.5;
+    cursor: inherit;
   }
 `;
