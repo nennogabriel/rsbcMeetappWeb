@@ -33,7 +33,7 @@ export default function SignIn() {
           placeholder="Sua senha secreta"
         />
 
-        <SubmitButton />
+        <SubmitButton>Entrar</SubmitButton>
         <Link to="/register">Criar conta gratuita</Link>
       </Form>
     </>

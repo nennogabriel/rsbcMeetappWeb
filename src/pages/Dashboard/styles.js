@@ -2,22 +2,13 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { darken } from 'polished';
 
-export const Container = styled.div`
-  max-width: 900px;
-  font-size: 1.4rem;
-  margin: 0 auto;
-`;
-
-export const Content = styled.div`
-  padding: 0 30px;
-`;
-
 export const Header = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 30px 0;
+  padding: 20px 0;
+  margin-bottom: 20px;
 
-  button {
+  a {
     background: #d44059;
     border-radius: 4px;
     color: #fff;
@@ -40,7 +31,7 @@ export const Header = styled.div`
 export const Meetup = styled(Link)`
   background: rgba(0, 0, 0, 0.2);
   padding: 20px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   border-radius: 4px;
   color: #fff;
   display: flex;
@@ -62,11 +53,8 @@ export const Meetup = styled(Link)`
     color: #ddd;
     font-size: 1.4rem;
   }
-<<<<<<< HEAD
 
   svg {
     margin-left: 10px;
   }
-=======
->>>>>>> 5236403ba00d68dfb10cdfad01f5d93f67c46977
 `;

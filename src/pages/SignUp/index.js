@@ -36,7 +36,7 @@ export default function SignUp() {
           placeholder="Sua senha secreta"
         />
 
-        <SubmitButton />
+        <SubmitButton>Cadastrar-se</SubmitButton>
         <Link to="/">Já tenho Login</Link>
       </Form>
     </>

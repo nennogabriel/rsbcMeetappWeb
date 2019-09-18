@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { color } from '~/styles/index';
 
 export const Wrapper = styled.div`
-  min-height: 100%;
+  height: 100%;
   background: linear-gradient(0deg, ${color.bgStart}, ${color.bgEnd});
   display: flex;
   justify-content: center;
@@ -11,7 +11,6 @@ export const Wrapper = styled.div`
 `;
 
 export const Content = styled.div`
-  max-width: 95%;
   width: 320px;
   text-align: center;
   font-size: 1.4rem;

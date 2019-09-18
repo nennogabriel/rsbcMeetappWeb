@@ -6,3 +6,10 @@ export const Wrapper = styled.div`
   background: linear-gradient(0deg, ${color.bgStart}, ${color.bgEnd});
   color: #fff;
 `;
+
+export const Content = styled.div`
+  max-width: 1000px;
+  padding: 30px;
+  margin: 0 auto;
+  font-size: 1.4rem;
+`;

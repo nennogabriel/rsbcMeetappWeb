@@ -2,14 +2,15 @@ import styled from 'styled-components';
 import { darken } from 'polished';
 
 export const Container = styled.div`
+  width: 100%;
   background: rgba(0, 0, 0, 0.3);
-  padding: 0 30px;
 `;
 
 export const Content = styled.div`
-  height: 64px;
-  max-width: 900px;
+  max-width: 1000px;
+  padding: 20px 30px;
   margin: 0 auto;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -44,7 +45,7 @@ export const Profile = styled.div`
 
   div {
     text-align: right;
-    margin-right: 10px;
+    margin-right: 20px;
 
     strong {
       display: block;
