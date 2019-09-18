@@ -62,8 +62,11 @@ export const Meetup = styled(Link)`
     color: #ddd;
     font-size: 1.4rem;
   }
+<<<<<<< HEAD
 
   svg {
     margin-left: 10px;
   }
+=======
+>>>>>>> 5236403ba00d68dfb10cdfad01f5d93f67c46977
 `;
