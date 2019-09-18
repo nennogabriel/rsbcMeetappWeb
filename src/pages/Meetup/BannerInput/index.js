@@ -4,6 +4,8 @@ import { useField } from '@rocketseat/unform';
 import { Container } from './styles';
 import api from '~/services/api';
 
+import holderImg from '~/assets/imageHold.jpg';
+
 export default function BannerInput() {
   const { defaultValue, registerField } = useField('file');
 
@@ -38,7 +40,7 @@ export default function BannerInput() {
   return (
     <Container>
       <label htmlFor="file">
-        <img src={preview || 'https://picsum.photos/940/300'} alt="" />
+        <img src={preview || holderImg} alt="" />
 
         <input
           type="file"

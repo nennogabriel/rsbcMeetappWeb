@@ -3,6 +3,8 @@ import { MdEvent, MdPlace, MdEdit, MdCancel } from 'react-icons/md';
 
 import { Container } from './styles';
 
+import holderImg from '~/assets/imageHold.jpg';
+
 export default function Details() {
   return (
     <Container>
@@ -19,7 +21,7 @@ export default function Details() {
         </div>
       </header>
       <main>
-        <img src="https://picsum.photos/940/300" alt="" />
+        <img src={holderImg} alt="" />
         <p>Lorem ipsum sifus estts. Lorem Lore</p>
         <p>Lorem ipsum sifus estts. Lorem Lore</p>
         <p>Lorem ipsum sifus estts. Lorem Lore</p>
