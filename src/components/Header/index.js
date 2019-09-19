@@ -4,14 +4,14 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import logo from '~/assets/logo.svg';
 import { Container, Content, Profile } from './styles';
-import { signOut } from '~/store/modules/auth/actions';
+import { authSignOut } from '~/store/modules/auth/actions';
 
 export default function Header() {
   const dispatch = useDispatch();
   const profile = useSelector(state => state.user.profile);
 
   function handleSignOut() {
-    dispatch(signOut());
+    dispatch(authSignOut());
   }
 
   return (

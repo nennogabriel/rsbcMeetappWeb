@@ -1,19 +1,13 @@
-export function updateProfileRequest(data) {
+export function userUpdateRequest(data) {
   return {
-    type: '@user/UPDATE_PROFILE_REQUEST',
+    type: '@user/UPDATE_REQUEST',
     payload: { data },
   };
 }
 
-export function updateProfileSuccess(profile) {
+export function userUpdateSuccess(profile) {
   return {
-    type: '@user/UPDATE_PROFILE_SUCCESS',
+    type: '@user/UPDATE_SUCCESS',
     payload: { profile },
-  };
-}
-
-export function updateProfileFailure() {
-  return {
-    type: '@user/UPDATE_PROFILE_FAILURE',
   };
 }

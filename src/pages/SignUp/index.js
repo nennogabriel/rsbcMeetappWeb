@@ -7,7 +7,7 @@ import * as Yup from 'yup';
 
 import logo from '~/assets/logo.svg';
 import SubmitButton from '~/components/SubmitButton';
-import { signUpRequest } from '~/store/modules/auth/actions';
+import { authSignUpRequest } from '~/store/modules/auth/actions';
 
 const schema = Yup.object().shape({
   name: Yup.string().required('O nome é obrigatório'),
@@ -22,7 +22,7 @@ const schema = Yup.object().shape({
 export default function SignUp() {
   const dispatch = useDispatch();
   function handleSubmit({ name, email, password }) {
-    dispatch(signUpRequest(name, email, password));
+    dispatch(authSignUpRequest(name, email, password));
   }
   return (
     <>

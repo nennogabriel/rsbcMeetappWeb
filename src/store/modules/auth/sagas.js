@@ -3,11 +3,11 @@ import { toast } from 'react-toastify';
 
 import api from '~/services/api';
 import {
-  signInSuccess,
-  signFailure,
-  signUpSuccess,
+  authSignInSuccess,
+  authSignUpSuccess,
 } from '~/store/modules/auth/actions';
 import history from '~/services/history';
+import { requestFailure } from '~/store/modules/ux/actions';
 
 export function* signIn({ payload }) {
   try {
@@ -18,12 +18,12 @@ export function* signIn({ payload }) {
 
     api.defaults.headers.Authorization = `Bearer ${token}`;
 
-    yield put(signInSuccess(token, user));
+    yield put(authSignInSuccess(token, user));
 
     history.push('/dashboard');
   } catch (err) {
     toast.error('Falha na autenticação, Verifique seus dados');
-    yield put(signFailure());
+    yield put(requestFailure());
   }
 }
 
@@ -38,13 +38,12 @@ export function* signUp({ payload }) {
       password,
     });
 
-    yield put(signUpSuccess());
+    yield put(authSignUpSuccess());
     toast.success('Cadastro realizado! Faça o login com suas credenciais');
     history.push('/');
   } catch (err) {
     toast.error('Falha no cadastro, verifique seus dados');
-
-    yield put(signFailure());
+    yield put(requestFailure());
   }
 }
 

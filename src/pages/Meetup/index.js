@@ -1,14 +1,20 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Form, Input, Textarea } from '@rocketseat/unform';
 import SubmitButton from '~/components/SubmitButton';
 
 import BannerInput from './BannerInput';
 
 import { Container } from './styles';
+import { meetupCreateRequest } from '../../store/modules/meetup/actions';
 
 export default function Meetup() {
-  function handleSubmit() {}
+  const dispatch = useDispatch();
   const meetup = {};
+
+  function handleSubmit(data) {
+    dispatch(meetupCreateRequest(data));
+  }
 
   return (
     <Container>
