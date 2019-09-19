@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
 export const Content = styled.div`
   width: 320px;
   text-align: center;
-  font-size: 1.4rem;
+  font-size: 14px;
 
   form {
     margin: 10px 0;
@@ -25,7 +25,7 @@ export const Content = styled.div`
       background: rgba(0, 0, 0, 0.2);
       padding: 14px 20px;
       border-radius: 4px;
-      font-size: 1.8rem;
+      font-size: 18px;
       color: #eee;
 
       &::placeholder {
@@ -45,7 +45,7 @@ export const Content = styled.div`
       border-radius: 4px;
       padding: 14px 20px;
       font-weight: bold;
-      font-size: 1.8rem;
+      font-size: 18px;
       color: #ffffff;
       margin: 10px;
     }
@@ -55,7 +55,7 @@ export const Content = styled.div`
     margin: 10px 0;
     color: #ffffff;
     padding: 10px;
-    font-size: 1.8rem;
+    font-size: 18px;
     opacity: 0.8;
     &:hover {
       opacity: 1;

@@ -7,7 +7,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     margin-top: 10px;
-    font-size: 1.6rem;
+    font-size: 16px;
 
     input {
       background: rgba(0, 0, 0, 0.1);
@@ -16,7 +16,7 @@ export const Container = styled.div`
       padding: 15px 15px;
       color: #fff;
       margin: 0 0 10px;
-      font-size: 1.6rem;
+      font-size: 16px;
 
       &::placeholder {
         color: rgba(255, 255, 255, 0.7);

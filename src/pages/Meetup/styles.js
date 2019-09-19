@@ -8,7 +8,7 @@ export const Container = styled.div`
 
     & > * {
       margin-bottom: 10px;
-      font-size: 1.6rem;
+      font-size: 16px;
     }
 
     input,
@@ -29,7 +29,7 @@ export const Container = styled.div`
       align-self: flex-end;
       background: ${color.primary};
       font-weight: bold;
-      font-size: 1.6rem;
+      font-size: 16px;
       color: #ffffff;
       padding: 8px 20px;
       border-radius: 4px;

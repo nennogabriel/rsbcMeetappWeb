@@ -13,7 +13,7 @@ export const Header = styled.div`
     border-radius: 4px;
     color: #fff;
     padding: 10px 20px;
-    font-size: 1.4rem;
+    font-size: 14px;
     font-weight: bold;
     display: flex;
     align-items: center;
@@ -37,7 +37,7 @@ export const Meetup = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 1.8rem;
+  font-size: 18px;
   transition: all linear 120ms;
 
   &:hover {
@@ -51,7 +51,7 @@ export const Meetup = styled(Link)`
   }
   span {
     color: #ddd;
-    font-size: 1.4rem;
+    font-size: 14px;
   }
 
   svg {

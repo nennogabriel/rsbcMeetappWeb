@@ -41,7 +41,7 @@ export const Content = styled.div`
 export const Profile = styled.div`
   display: flex;
   padding-left: 20px;
-  font-size: 1.3rem;
+  font-size: 13px;
 
   div {
     text-align: right;
@@ -55,7 +55,7 @@ export const Profile = styled.div`
     a {
       display: block;
       margin-top: 2px;
-      font-size: 1.2rem;
+      font-size: 12px;
       color: #aaa;
     }
   }
@@ -65,7 +65,7 @@ export const Profile = styled.div`
     border-radius: 4px;
     color: #fff;
     padding: 10px 20px;
-    font-size: 1.4rem;
+    font-size: 14px;
     font-weight: bold;
     &:hover {
       background: ${darken(0.03, '#d44059')};

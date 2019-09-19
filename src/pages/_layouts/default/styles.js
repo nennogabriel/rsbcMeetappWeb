@@ -11,5 +11,5 @@ export const Content = styled.div`
   max-width: 1000px;
   padding: 30px;
   margin: 0 auto;
-  font-size: 1.4rem;
+  font-size: 14px;
 `;

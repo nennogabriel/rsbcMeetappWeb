@@ -22,7 +22,6 @@ export default createGlobalStyle`
 
   html {
     line-height: 1.15;
-    font-size: 62.5%;
   }
 
   body {

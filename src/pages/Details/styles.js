@@ -17,7 +17,7 @@ export const Container = styled.div`
         border-radius: 5px;
         display: flex;
         align-items: center;
-        font-size: 1.4rem;
+        font-size: 14px;
         color: #fff;
         svg {
           margin-right: 8px;
@@ -40,7 +40,7 @@ export const Container = styled.div`
   main {
     margin-bottom: 20px;
     color: #fff;
-    font-size: 1.8rem;
+    font-size: 18px;
     line-height: 1.5;
 
     img {
@@ -51,7 +51,7 @@ export const Container = styled.div`
   }
   footer {
     color: #aaa;
-    font-size: 1.6rem;
+    font-size: 16px;
     display: flex;
     flex-direction: row;
 
