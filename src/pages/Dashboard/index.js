@@ -1,10 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { format, parseISO } from 'date-fns';
+import pt from 'date-fns/locale/pt';
 import { MdAddCircleOutline, MdChevronRight } from 'react-icons/md';
+
+import api from '~/services/api';
 
 import { Header, Meetup } from './styles';
 
 export default function Dashboard() {
+  const [meetups, setMeetups] = useState([]);
+  useEffect(() => {
+    async function loadMeetups() {
+      const response = await api.get('/meetups');
+      const data = response.data.map(item => {
+        return {
+          ...item,
+          dateFormatted: format(parseISO(item.date), "d 'de' MMMM", {
+            locale: pt,
+          }),
+        };
+      });
+      setMeetups(data);
+    }
+    loadMeetups();
+  }, []);
   return (
     <>
       <Header>
@@ -15,12 +35,12 @@ export default function Dashboard() {
         </Link>
       </Header>
       <ul>
-        {[1, 2, 3, 4, 5].map(i => (
-          <li key={String(i)}>
-            <Meetup to="/detail" past={i === 1} next={i === 2}>
-              <strong>Meetup Title</strong>
+        {meetups.map(meetup => (
+          <li key={String(meetup.id)}>
+            <Meetup to={`/detail/${meetup.id}`} past={meetup.past.toString()}>
+              <strong>{meetup.title}</strong>
               <div>
-                <span>3 de julho de 2001, às 10h</span>
+                <span>{meetup.dateFormatted}</span>
                 <MdChevronRight size={20} color="#fff" />
               </div>
             </Meetup>
