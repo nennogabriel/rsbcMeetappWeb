@@ -6,14 +6,14 @@ import SubmitButton from '~/components/SubmitButton';
 import BannerInput from './BannerInput';
 
 import { Container } from './styles';
-import { meetupCreateRequest } from '../../store/modules/meetup/actions';
+import { meetupsCreateRequest } from '~/store/modules/meetups/actions';
 
 export default function Meetup() {
   const dispatch = useDispatch();
   const meetup = {};
 
   function handleSubmit(data) {
-    dispatch(meetupCreateRequest(data));
+    dispatch(meetupsCreateRequest(data));
   }
 
   return (
