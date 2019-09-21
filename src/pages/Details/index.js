@@ -3,26 +3,43 @@ import { useSelector } from 'react-redux';
 import { MdEvent, MdPlace, MdEdit, MdCancel } from 'react-icons/md';
 import PropTypes from 'prop-types';
 
+import api from '~/services/api';
+
 import { Container } from './styles';
 
 import holderImg from '~/assets/imageHold.jpg';
 
-function Details({ match }) {
+function Details({ match, history }) {
   const id = Number(match.params.id);
   const meetups = useSelector(state => state.meetups.list);
   const [meetup, setMeetup] = useState({});
+
   useEffect(() => {
-    setMeetup(meetups[id]);
+    const meetupExists = meetups.find(item => item.id === id);
+    setMeetup(meetupExists);
   }, [id, meetups]);
+
+  function handleEdit() {
+    history.push(`/meetup/${meetup.id}`);
+  }
+
+  async function handleCancel() {
+    const response = window.confirm('Desjea realmente cancelar o evento?');
+    if (response) {
+      await api.delete(`/meetups/${meetup.id}`);
+      history.push('/dashboard');
+    }
+  }
+
   return (
     <Container>
       <header>
         <h1>{meetup.title}</h1>
         <div>
-          <button type="button" className="edit">
+          <button type="button" className="edit" onClick={handleEdit}>
             <MdEdit size={16} /> Editar
           </button>
-          <button type="button" className="cancel">
+          <button type="button" className="cancel" onClick={handleCancel}>
             <MdCancel size={16} />
             Cancel
           </button>
@@ -53,5 +70,8 @@ Details.propTypes = {
     params: PropTypes.shape({
       id: PropTypes.string,
     }),
+  }).isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func,
   }).isRequired,
 };

@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { useField } from '@rocketseat/unform';
 
 import { Container } from './styles';
@@ -6,7 +7,7 @@ import api from '~/services/api';
 
 import holderImg from '~/assets/imageHold.jpg';
 
-export default function BannerInput() {
+function BannerInput({ currentUrl }) {
   const { defaultValue, registerField } = useField('file');
   const [file, setFile] = useState(defaultValue && defaultValue.id);
   const [preview, setPreview] = useState(defaultValue && defaultValue.url);
@@ -20,6 +21,9 @@ export default function BannerInput() {
         ref: ref.current,
         path: 'dataset.file',
       });
+    }
+    if (currentUrl) {
+      setPreview(currentUrl);
     }
   }, [ref.current]); // eslint-disable-line
 
@@ -53,3 +57,9 @@ export default function BannerInput() {
     </Container>
   );
 }
+
+export default BannerInput;
+
+BannerInput.propTypes = {
+  currentUrl: PropTypes.string,
+};

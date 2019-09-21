@@ -27,9 +27,9 @@ export default function Dashboard() {
         <h2> Não há Meetups cadastrados</h2>
       ) : (
         <ul>
-          {meetups.map((meetup, index) => (
+          {meetups.map(meetup => (
             <li key={String(meetup.id)}>
-              <Meetup to={`/detail/${index}`} past={meetup.past.toString()}>
+              <Meetup to={`/detail/${meetup.id}`} past={meetup.past.toString()}>
                 <strong>{meetup.title}</strong>
                 <div>
                   <span>{meetup.dateFormatted}</span>

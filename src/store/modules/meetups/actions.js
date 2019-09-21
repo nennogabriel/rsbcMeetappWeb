@@ -24,3 +24,17 @@ export function meetupsIndexSuccess(meetups) {
     payload: meetups,
   };
 }
+
+export function meetupsUpdateRequest(data) {
+  return {
+    type: '@meetups/UPDATE_REQUEST',
+    payload: data,
+  };
+}
+
+export function meetupsUpdateSuccess(meetup) {
+  return {
+    type: '@meetups/UPDATE_SUCCESS',
+    payload: meetup,
+  };
+}
