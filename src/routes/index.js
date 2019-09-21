@@ -21,7 +21,6 @@ export default function Routes() {
       <Route path="/meetup/:id" component={Meetup} isPrivate />
       <Route path="/meetup" component={Meetup} isPrivate />
       <Route path="/detail/:id" component={Details} isPrivate />
-      <Route path="/detail" component={Details} isPrivate />
 
       <Route path="/" component={() => <h1>404</h1>} />
     </Switch>

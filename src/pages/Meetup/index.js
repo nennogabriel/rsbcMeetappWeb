@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Form, Input, Textarea } from '@rocketseat/unform';
+import { Form, Input } from '@rocketseat/unform';
 import SubmitButton from '~/components/SubmitButton';
 
 import BannerInput from './BannerInput';
@@ -22,7 +22,8 @@ export default function Meetup() {
         <BannerInput name="avatar_id" />
 
         <Input name="title" placeholder="Título de Meetup" />
-        <Textarea
+        <Input
+          multiline
           name="description"
           rows="4"
           placeholder="Descrição completa"

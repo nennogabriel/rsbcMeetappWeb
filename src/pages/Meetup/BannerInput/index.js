@@ -8,7 +8,6 @@ import holderImg from '~/assets/imageHold.jpg';
 
 export default function BannerInput() {
   const { defaultValue, registerField } = useField('file');
-
   const [file, setFile] = useState(defaultValue && defaultValue.id);
   const [preview, setPreview] = useState(defaultValue && defaultValue.url);
 
@@ -22,7 +21,7 @@ export default function BannerInput() {
         path: 'dataset.file',
       });
     }
-  }, [registerField]);
+  }, [ref.current]); // eslint-disable-line
 
   async function handleChange(e) {
     const data = new FormData();

@@ -1,30 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { format, parseISO } from 'date-fns';
-import pt from 'date-fns/locale/pt';
 import { MdAddCircleOutline, MdChevronRight } from 'react-icons/md';
 
-import api from '~/services/api';
-
 import { Header, Meetup } from './styles';
+import { meetupsIndexRequest } from '~/store/modules/meetups/actions';
 
 export default function Dashboard() {
-  const [meetups, setMeetups] = useState([]);
+  const dispatch = useDispatch();
+  const meetups = useSelector(state => state.meetups.list);
+
   useEffect(() => {
-    async function loadMeetups() {
-      const response = await api.get('/meetups');
-      const data = response.data.map(item => {
-        return {
-          ...item,
-          dateFormatted: format(parseISO(item.date), "d 'de' MMMM", {
-            locale: pt,
-          }),
-        };
-      });
-      setMeetups(data);
-    }
-    loadMeetups();
-  }, []);
+    dispatch(meetupsIndexRequest());
+  }, [dispatch]);
+
   return (
     <>
       <Header>
@@ -34,19 +23,23 @@ export default function Dashboard() {
           Novo meetup
         </Link>
       </Header>
-      <ul>
-        {meetups.map(meetup => (
-          <li key={String(meetup.id)}>
-            <Meetup to={`/detail/${meetup.id}`} past={meetup.past.toString()}>
-              <strong>{meetup.title}</strong>
-              <div>
-                <span>{meetup.dateFormatted}</span>
-                <MdChevronRight size={20} color="#fff" />
-              </div>
-            </Meetup>
-          </li>
-        ))}
-      </ul>
+      {meetups === null || meetups.length === 0 ? (
+        <h2> Não há Meetups cadastrados</h2>
+      ) : (
+        <ul>
+          {meetups.map((meetup, index) => (
+            <li key={String(meetup.id)}>
+              <Meetup to={`/detail/${index}`} past={meetup.past.toString()}>
+                <strong>{meetup.title}</strong>
+                <div>
+                  <span>{meetup.dateFormatted}</span>
+                  <MdChevronRight size={20} color="#fff" />
+                </div>
+              </Meetup>
+            </li>
+          ))}
+        </ul>
+      )}
     </>
   );
 }

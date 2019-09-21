@@ -1,34 +1,26 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects';
+import { format, parseISO } from 'date-fns';
+import pt from 'date-fns/locale/pt';
 import { toast } from 'react-toastify';
+
 import api from '~/services/api';
 import history from '~/services/history';
 import { requestFailure } from '~/store/modules/ux/actions';
-import { meetupsCreateSuccess } from './actions';
+import { meetupsCreateSuccess, meetupsIndexSuccess } from './actions';
 
 export function* meetupCreate({ payload }) {
   try {
     const response = yield call(api.post, '/meetups', payload);
-    const {
-      past,
-      id,
-      file_id,
-      title,
-      description,
-      date,
-      location,
-    } = response.data;
 
     yield put(
       meetupsCreateSuccess({
-        past,
-        id,
-        file_id,
-        title,
-        description,
-        date,
-        location,
+        ...response.data,
+        dateFormatted: format(parseISO(response.data.date), "d 'de' MMMM", {
+          locale: pt,
+        }),
       })
     );
+
     toast.success('meetup criado com sucesso');
     history.push('/dashboard');
   } catch (err) {
@@ -37,4 +29,27 @@ export function* meetupCreate({ payload }) {
   }
 }
 
-export default all([takeLatest('@meetups/ADD_REQUEST', meetupCreate)]);
+function* meetupIndex() {
+  try {
+    const response = yield call(api.get, '/meetups', {
+      params: { only: 'mine' },
+    });
+    const data = response.data.map(item => {
+      return {
+        ...item,
+        dateFormatted: format(parseISO(item.date), "d 'de' MMMM", {
+          locale: pt,
+        }),
+      };
+    });
+    yield put(meetupsIndexSuccess(data));
+  } catch (err) {
+    toast.error('Falha ao solicitar dados');
+    yield put(requestFailure());
+  }
+}
+
+export default all([
+  takeLatest('@meetups/ADD_REQUEST', meetupCreate),
+  takeLatest('@meetups/INDEX_REQUEST', meetupIndex),
+]);

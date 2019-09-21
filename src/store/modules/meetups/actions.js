@@ -11,3 +11,16 @@ export function meetupsCreateSuccess(meetup) {
     payload: { ...meetup },
   };
 }
+
+export function meetupsIndexRequest() {
+  return {
+    type: '@meetups/INDEX_REQUEST',
+  };
+}
+
+export function meetupsIndexSuccess(meetups) {
+  return {
+    type: '@meetups/INDEX_SUCCESS',
+    payload: meetups,
+  };
+}

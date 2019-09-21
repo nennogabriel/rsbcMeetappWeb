@@ -14,5 +14,6 @@ export default function SubmitButton({ children }) {
 }
 
 SubmitButton.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
+    .isRequired,
 };
